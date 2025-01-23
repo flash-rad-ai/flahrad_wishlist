@@ -19,10 +19,10 @@ const countdownInterval = setInterval(() => {
     const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
 
     // Update the DOM
-    document.getElementById("days").textContent = days;
-    document.getElementById("hours").textContent = hours;
-    document.getElementById("minutes").textContent = minutes;
-    document.getElementById("seconds").textContent = seconds;
+    document.querySelectorAll(".countdown div")[0].querySelector("span").textContent = days;
+    document.querySelectorAll(".countdown div")[1].querySelector("span").textContent = hours;
+    document.querySelectorAll(".countdown div")[2].querySelector("span").textContent = minutes;
+    document.querySelectorAll(".countdown div")[3].querySelector("span").textContent = seconds;
 }, 1000);
 
 // Popup Functions
@@ -33,6 +33,7 @@ function openPopup() {
 function closePopup() {
     document.getElementById("popup").style.display = "none";
 }
+
 
 
 //////////////
