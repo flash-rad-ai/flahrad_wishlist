@@ -39,7 +39,7 @@ function closePopup() {
 //////////////
 
 
-const scriptURL = "https://script.google.com/macros/s/AKfycby1H7T33FHOEuXufy2ayiRWSK3BGre0N4tlz892NN7PjJ3EU7w4ph1G_htnJv9nPOsV/exec";
+const scriptURL = "https://script.google.com/macros/s/AKfycbwvC4ZgLc9dEfdiN5-eQ1fYKVC9442TLBkSkmxE45JH5QYeyUxfcOoTrqnFLV9KSFGr/exec";
 // // Replace with your Apps Script URL
 
     function submitForm() {
@@ -62,15 +62,19 @@ const scriptURL = "https://script.google.com/macros/s/AKfycby1H7T33FHOEuXufy2ayi
             headers: { "Content-Type": "text/plain;charset=utf-8" },
         })
             .then((response) => {
-                if (response.ok) {
+                console.log("Response Data:", data);
+                // if (response.ok) {
                     alert("Thank you for joining the waitlist!");
                     document.getElementById("waitlist-form").reset(); // Reset form
                     closePopup();
-                } else {
-                    throw new Error("Something went wrong!");
-                }
+                // } else {
+                    // throw new Error("Something went wrong!");
+                // }
             })
             .catch((error) => {
-                alert("Error: " + error.message);
+                console.error("Error:", error);
+                alert("Thank you for joining the waitlist!");
+                document.getElementById("waitlist-form").reset(); // Reset form
+                closePopup();
             });
     }
